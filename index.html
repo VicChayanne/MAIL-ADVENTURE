@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAIL ADVENTURE</title>
+<meta name="description" content="MAIL ADVENTURE — Rex el dinosaurio cartero corre, salta y entrega el correo por todo el vecindario.">
+
+<!-- Tipografía pixel: Press Start 2P para títulos/etiquetas cortas,
+     VT323 para texto de lectura (más legible en párrafos). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     ESCENARIO — tu ilustración de cielo pixel art de fondo.
+     ============================================================ -->
+<div class="scene" id="scene" aria-hidden="true">
+  <div class="scene__bg"></div>
+  <div class="scene__sparkles" id="sparkles"></div>
+  <div class="scene__scanlines"></div>
+  <div class="scene__vignette"></div>
+</div>
+
+<!-- ============================================================
+     INTERFAZ
+     ============================================================ -->
+<main class="stage" id="stage">
+
+  <header class="panel panel--brand reveal" style="--delay:.6s">
+    <img class="brand__logo" src="assets/images/tituloG.png" alt="MAIL ADVENTURE">
+    <span class="brand__tagline">Corre, salta y entrega el correo</span>
+  </header>
+
+  <section class="panel panel--sidebar reveal" style="--delay:.85s">
+    <div class="info-card">
+      <span class="info-card__icon">GN</span>
+      <div class="info-card__body">
+        <span class="panel__label">Género</span>
+        <span class="panel__value">Corre sin fin · Arcade</span>
+      </div>
+    </div>
+    <div class="info-card">
+      <span class="info-card__icon">PC</span>
+      <div class="info-card__body">
+        <span class="panel__label">Plataforma</span>
+        <span class="panel__value">PC · Navegador</span>
+      </div>
+    </div>
+    <div class="info-card">
+      <span class="info-card__icon">PX</span>
+      <div class="info-card__body">
+        <span class="panel__label">Estilo</span>
+        <span class="panel__value">Pixel Art</span>
+      </div>
+    </div>
+    <div class="info-card">
+      <span class="info-card__icon">CT</span>
+      <div class="info-card__body">
+        <span class="panel__label">Controles</span>
+        <ul class="panel__list">
+          <li><span class="key">Espacio</span><span>Saltar</span></li>
+        </ul>
+        <span class="panel__note">En móvil: toca la pantalla</span>
+      </div>
+    </div>
+    <div class="info-card">
+      <span class="info-card__icon">DV</span>
+      <div class="info-card__body">
+        <span class="panel__label">Desarrollado por</span>
+        <span class="panel__value">Los lobos que facturan</span>
+      </div>
+    </div>
+  </section>
+
+  <aside class="panel panel--lore reveal" style="--delay:1.05s">
+    <h2 class="lore__title">Historia</h2>
+    <div class="lore__divider"><span></span><i>✦</i><span></span></div>
+    <p class="panel__text">
+      Mailo es el cartero más veloz del vecindario. Esquiva perros
+      y cajas mientras corre sin parar para entregar cada carta antes
+      de que se acabe el turno.
+    </p>
+    <p class="lore__cta">Toca la carta.<br>Comienza el reparto.</p>
+  </aside>
+
+  <!-- ============================================================
+       LA CARTA — sobre pixel art, elemento principal
+       ============================================================ -->
+  <div class="invite reveal" id="invite" tabindex="0" role="button" style="--delay:.4s"
+       aria-label="Abrir la carta para comenzar la aventura">
+
+    <div class="invite__ground-shadow" aria-hidden="true"></div>
+    <div class="invite__burst" aria-hidden="true"></div>
+    <div class="invite__flash" aria-hidden="true"></div>
+
+    <div class="invite__card" id="inviteCard">
+      <img class="invite__art" src="assets/images/CARTA.png" alt="">
+      <span class="invite__hint" id="inviteHint">Toca la carta para abrirla</span>
+      <p class="invite__unlock-text" id="unlockText">¡Aventura desbloqueada!</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BANNER — arte 800×400. Para cambiarlo, reemplaza el archivo
+       assets/images/banner.jpg por el tuyo (mismo nombre) o edita
+       la ruta del src de abajo.
+       ============================================================ -->
+  <figure class="panel panel--banner reveal" style="--delay:1.2s">
+    <img class="panel--banner__img" src="assets/images/banner.jpg"
+         alt="Rex el dinosaurio cartero repartiendo correo por el vecindario — Mail Adventure">
+  </figure>
+
+  <div class="fade-out" id="fadeOut" aria-hidden="true"></div>
+</main>
+
+<div class="top-actions">
+  <a class="donate-btn" id="donateBtn" href="https://youtu.be/f_WuRfuMXQw?si=3y9Uw4bAslejYLXb" target="_blank" rel="noopener">
+    <span aria-hidden="true">♥</span><span class="donate-btn__label">Donaciones</span>
+  </a>
+    <button class="sound-toggle" id="soundToggle" aria-pressed="false" aria-label="Activar sonido ambiental">
+    <span class="sound-toggle__icon" id="soundIcon">🔇</span>
+  </button>
+</div>
+<audio id="ambientAudio" src="assets/audio/ZiggyS.mp3" loop autoplay preload="auto"></audio>
+<audio id="openAudio" src="assets/audio/open.mp3" preload="none"></audio>
+<script src="script.js"></script>
+</body>
+</html>
